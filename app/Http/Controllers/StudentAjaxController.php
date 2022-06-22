@@ -11,10 +11,7 @@ class StudentAjaxController extends Controller
     public function index()
     {
         $students = InfoStudent::orderBy('id','DESC')->get();
-        dd($students);
-        return view('student.index',[
-            'students' => $students
-        ]);
+        return view('student.index',compact('students'));
     }
 
     /**

@@ -18,7 +18,7 @@ class InfoStudents extends Migration
             $table->string('hoten');
             $table->string('gioitinh');
             $table->date('ngaysinh');
-            $table->integer('sdt');
+            $table->string('sdt');
             $table->string('diachi');
             $table->timestamps();
         });
