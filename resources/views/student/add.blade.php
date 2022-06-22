@@ -1,4 +1,4 @@
-{{-- Modal thêm mới todo --}}
+
 <div class="modal fade" id="modal-add">
 	<div class="modal-dialog">
 		<div class="modal-content">

@@ -30,7 +30,7 @@
                 <tbody>
                     @foreach ($students as $student)
                         <tr>
-                            <td id="hoten-{{ $student->id }}">{{ $student->id }}</td>
+                            <td id="id-{{ $student->id }}">{{ $student->id }}</td>
                             <td id="hoten-{{ $student->id }}">{{ $student->hoten }}</td>
                             <td id="gioitinh-{{ $student->id }}">{{ $student->gioitinh }}</td>
                             <td id="ngaysinh-{{ $student->id }}">{{ $student->ngaysinh }}</td>
@@ -87,7 +87,6 @@
                     success: function(response) {
                         toastr.success(response.message)
                         $('#modal-add').modal('hide');
-                        console.log(response.data)
                         $('tbody').prepend('<tr><td id="' + response.data.id + '">' + response
                             .data.id + '</td><td id="hoten-' + response.data.id + '">' +
                             response.data.hoten + '</td><td id="gioitinh-' + response.data
@@ -141,6 +140,7 @@
                     type: 'GET',
                     url: url,
                     success: function(response) {
+
                         //lấy dữ liệu từ controller điền vào input form edit
                         $('#hoten-edit').val(response.data.hoten);
                         $('#ngaysinh-edit').val(response.data.ngaysinh);
@@ -171,13 +171,16 @@
                         diachi: $('#diachi-edit').val(),
                     },
                     success: function(response) {
+                        console.log(response);
+
                         toastr.success(response.message)
                         $('#modal-edit').modal('hide');
-                        $('#hoten-' + response.studentid).text(response.student.hoten)
-                        $('#gioitinh-' + response.studentid).text(response.student.gioitinh)
-                        $('#ngaysinh-' + response.studentid).text(response.student.ngaysinh)
-                        $('#sdt-' + response.studentid).text(response.student.sdt)
-                        $('#diachi-' + response.studentid).text(response.student.diachi)
+                        $('#id-' + response.id).text(response.student.id)
+                        $('#hoten-' + response.id).text(response.student.hoten)
+                        $('#gioitinh-' + response.id).text(response.student.gioitinh)
+                        $('#ngaysinh-' + response.id).text(response.student.ngaysinh)
+                        $('#sdt-' + response.id).text(response.student.sdt)
+                        $('#diachi-' + response.id).text(response.student.diachi)
                     },
                     error: function() {
                         toastr.error('Sửa student thất bại!');

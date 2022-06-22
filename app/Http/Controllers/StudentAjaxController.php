@@ -76,7 +76,7 @@ class StudentAjaxController extends Controller
         return response()->json([
             'data'=>$student,
             'student' => $request->all(),
-            'studentid' => $id,
+            'id' => $id,
             'message'=>'Cập nhật thông tin sinh viên thành công'],
             200);
     }

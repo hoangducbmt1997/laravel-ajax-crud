@@ -1,4 +1,4 @@
-{{-- Modal sửa todo --}}
+
 <div class="modal fade" id="modal-edit">
 	<div class="modal-dialog">
 		<div class="modal-content">
