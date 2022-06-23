@@ -57,7 +57,6 @@
     @include('student.add')
     @include('student.detail')
     @include('student.edit')
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
@@ -140,7 +139,6 @@
                     type: 'GET',
                     url: url,
                     success: function(response) {
-
                         //lấy dữ liệu từ controller điền vào input form edit
                         $('#hoten-edit').val(response.data.hoten);
                         $('#ngaysinh-edit').val(response.data.ngaysinh);
@@ -171,9 +169,8 @@
                         diachi: $('#diachi-edit').val(),
                     },
                     success: function(response) {
-                        console.log(response);
-
                         toastr.success(response.message)
+                        //ẩn model khi edit thành công
                         $('#modal-edit').modal('hide');
                         $('#id-' + response.id).text(response.student.id)
                         $('#hoten-' + response.id).text(response.student.hoten)

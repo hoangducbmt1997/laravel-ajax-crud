@@ -33,10 +33,10 @@ class StudentAjaxController extends Controller
     public function store(Request $request)
     {
         $student=InfoStudent::create($request->all());
+        // trả dữ liệu về cho ajax
         return response()->json([
             'data'=>$student,
-            'message'=>'Tạo sinh viên thành công'
-        ],200); // 200 là mã lỗi
+            'message'=>'Tạo sinh viên thành công'],200); //mã trạng thái 200
     }
 
     /**
@@ -48,7 +48,8 @@ class StudentAjaxController extends Controller
     public function show($id)
     {
         $student = InfoStudent::find($id);
-        return response()->json(['data'=>$student],200); // 200 là mã lỗi
+        // trả dữ liệu về cho ajax
+        return response()->json(['data'=>$student],200); //mã trạng thái 200
     }
 
     /**
@@ -60,7 +61,8 @@ class StudentAjaxController extends Controller
     public function edit($id)
     {
         $student=InfoStudent::find($id);
-        return response()->json(['data'=>$student],200); // 200 là mã lỗi
+        // trả dữ liệu về cho ajax
+        return response()->json(['data'=>$student],200); //mã trạng thái 200
     }
 
     /**
@@ -73,12 +75,12 @@ class StudentAjaxController extends Controller
     public function update(Request $request, $id)
     {
         $student=InfoStudent::find($id)->update($request->all());
+        // trả dữ liệu về cho ajax
         return response()->json([
             'data'=>$student,
             'student' => $request->all(),
             'id' => $id,
-            'message'=>'Cập nhật thông tin sinh viên thành công'],
-            200);
+            'message'=>'Cập nhật thông tin sinh viên thành công'],200);
     }
 
     /**
@@ -90,6 +92,7 @@ class StudentAjaxController extends Controller
     public function destroy($id)
     {
         InfoStudent::find($id)->delete();
-        return response()->json(['data'=>'removed'],200);
+        // trả dữ liệu về cho ajax
+        return response()->json(['data'=>'removed'],200); //mã trạng thái 200
     }
 }
